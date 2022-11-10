@@ -2,32 +2,32 @@ import { IMG_BASE_URL, orders, sizes } from './db.js';
 
 const getCard = (item) => {
   const { img, name, status, short, info, colorStyle, id } = item;
-  let element = document.createElement('div');
+  let element = document.createElement('section');
   element.className = `card ${colorStyle} ${orders[id]} ${sizes[id]}`;
   let card = `
-      <div class="wrapper">
-        <div class="card__title">
+      <div  class="wrapper">
+        <figure class="card__title">
           <div class="card__title-img">
             <img src=${IMG_BASE_URL + img} alt="">
           </div>
-          <div class="cart__title-right">
+          <figcaption class="cart__title-right">
             <h2 class="card__title-name">
               ${name}
             </h2>
             <div class="card__title-status">
               ${status}
             </div>
-          </div>
-        </div>
+          </figcaption>
+        </figure>
         <div class="card__body">
           <p class="card__body-short">
             ${short}
           </p>
-          <p class="card__body-info">
+          <blockquote class="card__body-info">
             ${info}
-          </p>
+          </blockquote>
         </div>
-      </div>
+      </div >
     `;
   element.innerHTML = card;
   return element;
